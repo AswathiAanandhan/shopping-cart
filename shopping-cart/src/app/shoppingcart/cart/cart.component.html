@@ -1,0 +1,40 @@
+<a class="p-2 py-2 text-dark " [routerLink]="['/CART']">CART</a>
+
+    
+<app-cart-item ></app-cart-item>
+    
+<div class="container">
+
+    <table>
+      <tr>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+        
+      </tr>
+      <tr *ngFor="let getCartDetail of getCartDetails">
+        <td><img class="img" src="{{getCartDetail.imageUrl}}"></td>
+        <td>{{getCartDetail.price | currency:"INR"}}</td>
+        <td>
+            <div class="content">
+                <button type="button" classs="btn" (click)="inc(getCartDetail.id,getCartDetail.quantity)"><i class="fa fa-plus"></i></button>
+                <span>{{getCartDetail.quantity}}</span>
+                <button type="button" classs="btn" (click)="dec(getCartDetail.id,getCartDetail.quantity)"><i class="fa fa-minus"></i></button>
+
+            </div>
+        </td>
+        <td>{{getCartDetail.quantity * getCartDetail.price | currency: "INR"}}</td>
+        
+      </tr>
+      </table>
+      <div class="row">
+          <div class="col text-right">
+               <h3>Total - {{total|currency:"INR"}}</h3>
+          </div><br>
+          <div class="col text-right">
+              <button type="button" class="removeall" (click)="removeall()"><i class="fa fa-trash"></i>Remove All Item</button>
+          </div>
+      </div>
+  </div>
+    

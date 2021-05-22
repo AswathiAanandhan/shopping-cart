@@ -1,0 +1,11 @@
+
+.b1{
+    background-color:aqua;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #dddddd;
+  }
+  .content span{
+      font-weight: 800;
+      font-size: 18px;
+  }

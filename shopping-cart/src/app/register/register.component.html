@@ -1,0 +1,29 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h3 class="header">Register</h3>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input   formControlName="email" name="email" class="form-control" id="email" type="email">
+                <div *ngIf="(this.registerForm.get('email')?.touched||this.registerForm.get('email')?.dirty)&& this.registerForm.get('email')?.errors">invalid Email</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Name</label>
+                <input   formControlName="name" name="name" class="form-control" id="name" type="text">
+                <div *ngIf="(this.registerForm.get('name')?.touched||this.registerForm.get('name')?.dirty)&& this.registerForm.get('name')?.errors">invalid Name</div>
+            </div>
+            <div class="form-group" >
+                <label for="password">Password</label>
+                <input  formControlName="pswd" name="password" class="form-control"  id="password" type="password">
+                <div *ngIf="(this.registerForm.get('pswd')?.touched||this.registerForm.get('pswd')?.dirty)&& this.registerForm.get('pswd')?.errors">invalid password</div>
+            </div>
+           
+            <br>
+        
+            <button type="submit" (click)="register()" class="btn btn-primary btn-block">Register</button>
+            <a class="login" [routerLink]="['/login']">Login</a>
+        </div>
+    </div>      
+    
+</form>
+
